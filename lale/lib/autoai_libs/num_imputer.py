@@ -109,7 +109,21 @@ _hyperparams_schema = {
                     "default": True,
                 },
             },
-        }
+        },
+        {
+            "description": "fill_value and fill_values cannot both be specified",
+            "forOptimizer": False,
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {"fill_value": {"enum": [None]}},
+                },
+                {
+                    "type": "object",
+                    "properties": {"fill_values": {"enum": [None]}},
+                },
+            ],
+        },
     ]
 }
 
